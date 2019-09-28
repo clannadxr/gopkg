@@ -13,7 +13,7 @@ func UnmarshalFromFile(filename string, out interface{}) (err error) {
 	if err != nil {
 		return
 	}
-	// 去除boom
-	csvDataBytes = fmtutil.TrimBoom(csvDataBytes)
+	// 去除bom
+	csvDataBytes = fmtutil.TrimBom(csvDataBytes)
 	return gocsv.UnmarshalBytes(csvDataBytes, out)
 }

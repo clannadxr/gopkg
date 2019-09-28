@@ -1,9 +1,8 @@
 package fmtutil
 
-// TrimBoom 去除boom头
-func TrimBoom(in []byte) []byte {
-	if len(in) > 3 && in[0] == 239 {
-		return in[3:]
-	}
-	return in
+import "bytes"
+
+// TrimBom 去除bom头
+func TrimBom(in []byte) []byte {
+	return bytes.TrimPrefix(in, []byte{239, 187, 191})
 }
